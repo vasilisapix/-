@@ -1,0 +1,252 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ArtWay — твой стиль рисования</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff7fb;
+      color: #45334f;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 7%;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: bold;
+      color: #9859b5;
+    }
+
+    .logo span {
+      color: #f19bbd;
+    }
+
+    .tag {
+      background: white;
+      padding: 10px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px 60px;
+      text-align: center;
+    }
+
+    .art-picture {
+      position: relative;
+      max-width: 620px;
+      min-height: 260px;
+      margin: 10px auto 30px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #f8d9ec, #e4ddff, #d9f3ef);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      overflow: hidden;
+    }
+
+    .art-picture::before {
+      content: "✦";
+      position: absolute;
+      top: 25px;
+      left: 12%;
+      color: white;
+      font-size: 40px;
+    }
+
+    .art-picture::after {
+      content: "✧";
+      position: absolute;
+      right: 12%;
+      bottom: 25px;
+      color: white;
+      font-size: 48px;
+    }
+
+    .art-item {
+      background: #ffffffc9;
+      border-radius: 24px;
+      width: 125px;
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 66px;
+      transform: rotate(-5deg);
+      box-shadow: 0 8px 20px #8d65901c;
+    }
+
+    .art-item:nth-child(2) {
+      transform: translateY(-12px) rotate(4deg);
+      background: #fffaf0dd;
+    }
+
+    h1 {
+      font-size: clamp(32px, 7vw, 52px);
+      line-height: 1.12;
+      margin: 15px 0;
+    }
+
+    h1 span {
+      color: #a66bc4;
+    }
+
+    .description {
+      max-width: 510px;
+      margin: 0 auto;
+      color: #766b7e;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .start-button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 17px 32px;
+      background: #a66bc4;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 18px;
+      box-shadow: 0 7px 0 #8750a2;
+      transition: transform 0.2s;
+    }
+
+    .start-button:active {
+      transform: translateY(4px);
+      box-shadow: 0 3px 0 #8750a2;
+    }
+
+    .note {
+      margin-top: 22px;
+      color: #998da0;
+      font-size: 13px;
+    }
+
+    #test {
+      margin: 65px auto 0;
+      padding: 28px 20px;
+      background: white;
+      border-radius: 25px;
+      max-width: 600px;
+    }
+
+    .choice {
+      display: block;
+      width: 100%;
+      margin: 12px 0;
+      padding: 16px;
+      border: 2px solid #eee2f5;
+      background: #fffaff;
+      color: #45334f;
+      border-radius: 15px;
+      font-size: 16px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .choice:hover {
+      background: #f4e7fb;
+    }
+
+    #answer {
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: #998da0;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Art<span>Way</span> ✦</div>
+    <div class="tag">🎨 Мир твоего творчества</div>
+  </header>
+
+  <main>
+    <div class="art-picture" aria-label="Иллюстрация с предметами для рисования">
+      <div class="art-item">🎨</div>
+      <div class="art-item">🖍️</div>
+      <div class="art-item">🖌️</div>
+    </div>
+
+    <h1>Какой у тебя <span>стиль рисования?</span></h1>
+
+    <p class="description">
+      Аниме, милый чиби, пиксель-арт или реализм?
+      Ответь на несколько интересных вопросов
+      и открой свой творческий стиль!
+    </p>
+
+    <a class="start-button" href="#test">✨ Начать тест</a>
+
+    <p class="note">Для мечтателей, художников и творческих душ 💗</p>
+
+    <section id="test">
+      <h2>🌷 Давай познакомимся!</h2>
+      <p>Что тебе больше всего нравится рисовать?</p>
+
+      <button class="choice" onclick="choose('anime')">
+        🌸 Персонажей с большими выразительными глазами
+      </button>
+
+      <button class="choice" onclick="choose('cute')">
+        🧸 Милых зверушек и забавных героев
+      </button>
+
+      <button class="choice" onclick="choose('pixel')">
+        👾 Игровых персонажей из маленьких квадратиков
+      </button>
+
+      <button class="choice" onclick="choose('real')">
+        🌿 Людей, природу и реальные предметы
+      </button>
+
+      <p id="answer" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer>ArtWay © 2026 · Создано с любовью к искусству 💜</footer>
+
+  <script>
+    function choose(style) {
+      const results = {
+        anime: "Тебе может понравиться аниме! ✨",
+        cute: "Попробуй стиль чиби и kawaii! 🧸",
+        pixel: "Возможно, твой стиль — пиксель-арт! 👾",
+        real: "Попробуй реализм и наблюдательное рисование! 🌿"
+      };
+
+      document.getElementById("answer").textContent =
+        results[style];
+    }
+  </script>
+</body>
+</html>
